@@ -1,0 +1,41 @@
+{
+    "name": "FormatJson",
+    "icon": "json.svg",
+    "identifier": "com.tallfish.formatjson",
+    "description": "format json",
+    "popclipVersion": 4069,
+    "module": "main.js",
+    "regex": "^(\\{[\\s\\S]*\\})|(\\[[\\s\\S]*\\])$",
+    "options": [
+        {
+            "identifier": "compressWith",
+            "label": "Key Combo",
+            "type": "multiple",
+            "values": [
+                "command",
+                "control",
+                "option"
+            ],
+            "valueLabels": [
+                "Command (⌘)",
+                "Control (⌃)",
+                "Option (⌥)"
+            ]
+        },
+        {
+            "identifier": "afterAction",
+            "label": "Action",
+            "type": "multiple",
+            "values": [
+                "replace",
+                "append",
+                "copy"
+            ],
+            "valueLabels": [
+                "Replace origin text",
+                "Append with newline",
+                "Save to clipboard"
+            ]
+        }
+    ]
+}

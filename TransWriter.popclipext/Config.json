@@ -1,0 +1,78 @@
+{
+    "name": "TransWriter",
+    "icon": "transwriter.svg",
+    "identifier": "com.tallfish.transwriter",
+    "description": "send the selected text to OpenAI and translate to language what u selected",
+    "popclipVersion": 4069,
+    "entitlements": [
+        "network"
+    ],
+    "module": "main.js",
+    "options": [
+        {
+            "identifier": "model",
+            "label": "Model Provider",
+            "type": "multiple",
+            "values": [
+                "ChatGPT OpenAI",
+                "Azure OpenAI"
+            ]
+        },
+        {
+            "identifier": "url",
+            "label": "Url",
+            "type": "string"
+        },
+        {
+            "identifier": "apikey",
+            "label": "API-Key",
+            "type": "string"
+        },
+        {
+            "identifier": "language",
+            "label": "Target Language",
+            "type": "multiple",
+            "values": [
+                "English",
+                "Chinese",
+                "German",
+                "French",
+                "Japanese",
+                "Korean",
+                "Russian",
+                "Italian",
+                "Spanish",
+                "Portuguese",
+                "Arabic"
+            ],
+            "valueLabels": [
+                "English(English)",
+                "中文(Chinese)",
+                "Deutsch(German)",
+                "Français(French)",
+                "日本語(Japanese)",
+                "한국어(Korean)",
+                "Русский(Russian)",
+                "Italiano(Italian)",
+                "Español(Spanish)",
+                "Português(Portuguese)",
+                "العربية(Arabic)"
+            ]
+        },
+        {
+            "identifier": "afterAction",
+            "label": "Action",
+            "type": "multiple",
+            "values": [
+                "replace",
+                "append",
+                "copy"
+            ],
+            "valueLabels": [
+                "Replace origin text",
+                "Append with newline",
+                "Save to clipboard"
+            ]
+        }
+    ]
+}

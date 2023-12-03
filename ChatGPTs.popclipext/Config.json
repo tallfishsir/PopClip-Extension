@@ -45,7 +45,7 @@
         },
         {
             "identifier": "enableAction1",
-            "label": "Action1 Enable",
+            "label": "Activate Action1",
             "type": "boolean",
             "default value": false
         },
@@ -56,7 +56,7 @@
         },
         {
             "identifier": "enableAction2",
-            "label": "Action2 Enable",
+            "label": "Activate Action2",
             "type": "boolean",
             "default value": false
         },
@@ -67,7 +67,7 @@
         },
         {
             "identifier": "enableAction3",
-            "label": "Action3 Enable",
+            "label": "Activate Action3",
             "type": "boolean",
             "default value": false
         },

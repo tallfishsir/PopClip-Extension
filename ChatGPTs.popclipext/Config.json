@@ -1,0 +1,80 @@
+{
+    "name": "ChatGPTs",
+    "icon": "chatgpt.svg",
+    "identifier": "com.tallfish.chatgpts",
+    "description": "",
+    "popclipVersion": 4069,
+    "entitlements": [
+        "network"
+    ],
+    "module": "main.js",
+    "options": [
+        {
+            "identifier": "model",
+            "label": "Model Provider",
+            "type": "multiple",
+            "values": [
+                "ChatGPT OpenAI",
+                "Azure OpenAI"
+            ]
+        },
+        {
+            "identifier": "url",
+            "label": "Url",
+            "type": "string"
+        },
+        {
+            "identifier": "apikey",
+            "label": "API-Key",
+            "type": "string"
+        },
+        {
+            "identifier": "afterAction",
+            "label": "AfterAction",
+            "type": "multiple",
+            "values": [
+                "replace",
+                "append",
+                "copy"
+            ],
+            "valueLabels": [
+                "Replace origin text",
+                "Append with newline",
+                "Save to clipboard"
+            ]
+        },
+        {
+            "identifier": "enableAction1",
+            "label": "Action1 Enable",
+            "type": "boolean",
+            "default value": false
+        },
+        {
+            "identifier": "action1",
+            "label": "Action1 Prompt",
+            "type": "string"
+        },
+        {
+            "identifier": "enableAction2",
+            "label": "Action2 Enable",
+            "type": "boolean",
+            "default value": false
+        },
+        {
+            "identifier": "action2",
+            "label": "Action2 Prompt",
+            "type": "string"
+        },
+        {
+            "identifier": "enableAction3",
+            "label": "Action3 Enable",
+            "type": "boolean",
+            "default value": false
+        },
+        {
+            "identifier": "action3",
+            "label": "Action3 Prompt",
+            "type": "string"
+        }
+    ]
+}

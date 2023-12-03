@@ -2,7 +2,7 @@
     "name": "FormatJson",
     "icon": "json.svg",
     "identifier": "com.tallfish.formatjson",
-    "description": "format json",
+    "description": "format json and compress json",
     "popclipVersion": 4069,
     "module": "main.js",
     "regex": "^(\\{[\\s\\S]*\\})|(\\[[\\s\\S]*\\])$",
@@ -11,6 +11,7 @@
             "identifier": "compressWith",
             "label": "Key Combo",
             "type": "multiple",
+            "description": "press when you want to compress json",
             "values": [
                 "command",
                 "control",
@@ -32,7 +33,7 @@
                 "copy"
             ],
             "valueLabels": [
-                "Replace origin text",
+                "Replace original text",
                 "Append with newline",
                 "Save to clipboard"
             ]

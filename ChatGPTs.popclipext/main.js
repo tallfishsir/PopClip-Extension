@@ -37,17 +37,29 @@ function requestInfo(options, requestApi, messages) {
 function makeMessage(input, options, index) {
     const messages = [];
     const originContent = input.text;
-    let systemContent = "";
+    let systemContent = `Ignore all previous commands, `;
     if (index == 1) {
-        systemContent = options.action1;
+        systemContent = `Ignore all previous commands, ${options.action1} :`
     } else if (index == 2) {
-        systemContent = options.action2;
+        systemContent = `Ignore all previous commands, ${options.action2} :`
     } else if (index == 3) {
-        systemContent = options.action3;
+        systemContent = `Ignore all previous commands, ${options.action3} :`
     }
-    const userContent = `Ignore all previous commands, ${systemContent} : ${originContent}`
+    const userContent = `${systemContent} ${originContent}`
     messages.push({ role: "user", content: userContent });
     return messages
+}
+
+function getAfterAction(options, index) {
+    let defaultAction = options.afterAction;
+    if (index == 1) {
+        defaultAction = options.afterAction1;
+    } else if (index == 2) {
+        defaultAction = options.afterAction2;
+    } else if (index == 3) {
+        defaultAction = options.afterAction3;
+    }
+    return defaultAction;
 }
 
 async function doAction(popclip, input, options, index) {
@@ -57,9 +69,10 @@ async function doAction(popclip, input, options, index) {
         const { data } = await requestInfo(options, requestApi, messages);
         const originContent = input.text;
         const result = data.choices[0].message.content.trim();
-        if (options.afterAction === "replace") {
+        const afterAction = getAfterAction(options, index);
+        if (afterAction === "replace") {
             popclip.pasteText(result);
-        } else if (options.afterAction === "append") {
+        } else if (afterAction === "append") {
             popclip.pasteText(originContent.trim() + '\n' + result);
         } else {
             popclip.copyText(result);
@@ -79,6 +92,10 @@ function getErrorInfo(error) {
 }
 exports.getErrorInfo = getErrorInfo;
 exports.actions = [
+    {
+        requirements: ["text"],
+        code: async (input, options) => doAction(popclip, input, options, 0),
+    },
     {
         icon: "symbol:1.square",
         requirements: ["text", "option-enableAction1=1"],

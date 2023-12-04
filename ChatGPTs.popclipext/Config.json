@@ -45,7 +45,7 @@
         },
         {
             "identifier": "enableAction1",
-            "label": "Activate Action1",
+            "label": "Enable Action1",
             "type": "boolean",
             "default value": false
         },
@@ -55,8 +55,23 @@
             "type": "string"
         },
         {
+            "identifier": "afterAction1",
+            "label": "AfterAction1",
+            "type": "multiple",
+            "values": [
+                "replace",
+                "append",
+                "copy"
+            ],
+            "valueLabels": [
+                "Replace origin text",
+                "Append with newline",
+                "Save to clipboard"
+            ]
+        },
+        {
             "identifier": "enableAction2",
-            "label": "Activate Action2",
+            "label": "Enable Action2",
             "type": "boolean",
             "default value": false
         },
@@ -66,8 +81,23 @@
             "type": "string"
         },
         {
+            "identifier": "afterAction2",
+            "label": "AfterAction2",
+            "type": "multiple",
+            "values": [
+                "replace",
+                "append",
+                "copy"
+            ],
+            "valueLabels": [
+                "Replace origin text",
+                "Append with newline",
+                "Save to clipboard"
+            ]
+        },
+        {
             "identifier": "enableAction3",
-            "label": "Activate Action3",
+            "label": "Enable Action3",
             "type": "boolean",
             "default value": false
         },
@@ -75,6 +105,21 @@
             "identifier": "action3",
             "label": "Action3 Prompt",
             "type": "string"
+        },
+        {
+            "identifier": "afterAction3",
+            "label": "AfterAction3",
+            "type": "multiple",
+            "values": [
+                "replace",
+                "append",
+                "copy"
+            ],
+            "valueLabels": [
+                "Replace origin text",
+                "Append with newline",
+                "Save to clipboard"
+            ]
         }
     ]
 }

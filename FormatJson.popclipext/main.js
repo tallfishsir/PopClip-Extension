@@ -11,11 +11,18 @@ function compressJson(jsonString) {
     return JSON.stringify(jsonData);
 }
 
+function decodeUnicode(str) {
+    return str.replace(/\\u[\dA-F]{4}/gi, function (match) {
+        return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
+    });
+}
+
 function handleJsonString(originContent, shouldCompress) {
+    const decodeUnicodeContent = decodeUnicode(originContent);
     if (shouldCompress) {
-        return compressJson(originContent);
+        return compressJson(decodeUnicodeContent);
     } else {
-        return formatJson(originContent);
+        return formatJson(decodeUnicodeContent);
     }
 }
 

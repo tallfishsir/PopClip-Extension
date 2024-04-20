@@ -22,7 +22,7 @@ function createApi(options) {
 function requestInfo(options, requestApi, messages) {
     if (options.model === "ChatGPT OpenAI") {
         return requestApi.post("", {
-            model: "gpt-3.5-turbo-16k",
+            model: options.apiModel,
             messages,
         });
     } else if (options.model === "Azure OpenAI") {

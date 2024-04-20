@@ -29,6 +29,11 @@
             "type": "string"
         },
         {
+            "identifier": "apiModel",
+            "label": "Model",
+            "type": "string"
+        },
+        {
             "identifier": "language",
             "label": "Target Language",
             "type": "multiple",

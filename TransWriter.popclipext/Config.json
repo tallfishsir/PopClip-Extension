@@ -15,6 +15,7 @@
             "type": "multiple",
             "values": [
                 "ChatGPT OpenAI",
+                "Moonshot AI",
                 "Azure OpenAI"
             ]
         },

@@ -13,6 +13,8 @@ function createApi(options) {
     };
     if (options.model === "ChatGPT OpenAI") {
         axiosConfig.headers['Authorization'] = `Bearer ${options.apikey}`;
+    } else if (options.model === "Moonshot AI") {
+        axiosConfig.headers['Authorization'] = `Bearer ${options.apikey}`;
     } else if (options.model === "Azure OpenAI") {
         axiosConfig.headers['api-key'] = options.apikey;
     }
@@ -21,6 +23,11 @@ function createApi(options) {
 
 function requestInfo(options, requestApi, messages) {
     if (options.model === "ChatGPT OpenAI") {
+        return requestApi.post("", {
+            model: options.apiModel,
+            messages,
+        });
+    } else if (options.model === "Moonshot AI") {
         return requestApi.post("", {
             model: options.apiModel,
             messages,
@@ -45,8 +52,14 @@ function makeMessage(input, options, index) {
     } else if (index == 3) {
         systemContent = `Ignore all previous commands, ${options.action3} :`
     }
-    const userContent = `${systemContent} ${originContent}`
-    messages.push({ role: "user", content: userContent });
+    if (options.model === "Moonshot AI"){
+        const userContent = `${originContent}`
+        messages.push({ role: "system", content: systemContent });
+        messages.push({ role: "user", content: userContent });
+    } else {
+        const userContent = `${systemContent} ${originContent}`
+        messages.push({ role: "user", content: userContent });
+    }
     return messages
 }
 
